@@ -1,0 +1,47 @@
+﻿@page
+@model ForumModel
+@{
+    ViewData["Title"] = "Forum";
+}
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+<h2>Добро пожаловать на форум!</h2>
+<h5>Ниже вы можете выбрать одну из тем обсуждений или же создать свою.</h5>
+
+<div>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a class="btn btn-primary" asp-page="/CreateTopic">Созать тему</a>
+    }
+    else
+    {
+        <button class="btn btn-primary" hidden>Зарегистрируйтесь</button>
+    }
+</div>
+
+<div>Список тем</div>
+<table class="table">
+    <thead>
+        <tr><th>Название</th><th>Содержание</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var theme in Model.Topics)
+        {
+            <tr>
+                <td>@theme.topicName</td>
+                <td>@theme.topicText</td>
+                <td>
+                    <form method="post">
+                        <a class="btn btn-primary" asp-page="Edit" asp-route-id="@theme.ID">Изменить</a>
+                        <button class="btn btn-primary" type="submit" asp-page-handler="delete" asp-route-id="@theme.ID">
+                            Удалить
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

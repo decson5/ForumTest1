@@ -1,0 +1,29 @@
+﻿@page "{id:int}"
+@model EditModel
+@{
+    ViewData["Title"] = "Theme Changes";
+}
+
+<h2>Редактирование</h2>
+
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <input asp-for="topic.ID" type="hidden"/>
+    <div class="form-group">
+        <label>Имя темы: </label>
+        <input asp-for="topic.topicName" type="text" class="form-control" placeholder="Новая тема">
+        <span asp-validation-for="topic.topicName"></span>
+        <small>Название должно быть кратким и лаконичным!</small>
+    </div>
+    <div class="form-group">
+        <label>Введите текст: </label><br />
+        <textarea asp-for="topic.topicText" class="form-control" rows="10"></textarea>
+        <span asp-validation-for="topic.topicText"></span>
+    </div>
+
+    <div>
+        <button class="btn btn-primary" type="submit">Сохранить</button>
+    </div>
+</form>
+
