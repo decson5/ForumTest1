@@ -6,10 +6,13 @@ using ForumTest1.Models;
 using ForumTest1.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace ForumTest1.Pages.Shared
+namespace ForumTest1.Pages
 {
     public class EditModel : PageModel
     {
+        /*
+         * Edit.cshtml.cs предназначен для редактирования или удаления темы и текста поста
+        */
         private readonly ApplicationDbContext _context;
         [BindProperty]
         public Topic topic { get; set; }
