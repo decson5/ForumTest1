@@ -1,5 +1,5 @@
 # ExampleForum
-Asp.net Core 2.1 DemoForum basic on Razor pages
+Asp.net Core 2.1 DemoForum basic on Razor pages/n
 В общем и целом, попытка создания примитивного форума на Asp.net Core 2.1 с Razor Pages
 На данный момент в реализаии присутсвуют:
 * регистрация (стандартный метод сгенерирован при создании проекта)
